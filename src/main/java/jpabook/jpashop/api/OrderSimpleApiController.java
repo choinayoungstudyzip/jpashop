@@ -30,6 +30,13 @@ public class OrderSimpleApiController {
     private final OrderSimpleQueryRepository orderSimpleQueryRepository;
 
     /**
+     * 우선 엔티티를 DTO로 변환하는 방법을 선택한다. v2
+     * 필요하면 페치 조인으로 성능을 최적화 한다. 대부분의 성능 이슈가 해결된다. v3
+     * 그래도 안되면 DTO로 직접 조회하는 방법을 사용한다. v4
+     * 최후의 방법은 JPA가 제공하는 네이티브 SQL이나 스프링 JDBC Template을 사용해서 SQL을 직접 사용한다
+     */
+
+    /**
      * 엔티티 직접 반환 하지말자
      * 무한 로딩 걸려서 JsonIgnore해주고
      * Hibernate5JakartaModule 라이브러리 추가해서 bean 등록후 설정 해줘야하는데
